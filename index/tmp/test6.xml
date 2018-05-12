@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<row><checked>0</checked><name/><price/>452<restaurant>0</restaurant><type>0</type><combin>1</combin><imgid/></row>
+<row><checked>0</checked><name/><price/>555<restaurant>0</restaurant><type>0</type><combin>1</combin><imgid/></row>
+<row><checked>0</checked><name/><price>123</price><restaurant>0</restaurant><type>0</type><combin>1</combin><imgid/></row>
+<row><checked>0</checked><name/><price/><restaurant>0</restaurant><type>0</type><combin>1</combin><imgid/></row>
+<row><checked>0</checked><name/><price/><restaurant>0</restaurant><type>0</type><combin>1</combin><imgid/></row>
+</root>

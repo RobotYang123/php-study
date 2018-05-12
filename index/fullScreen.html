@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title></title>  
+</head>  
+<script type="text/javascript">  
+    function fullScreen() {
+    	this.moveTo(0,0);
+		//this.outerWidth=screen.availWidth;
+		//this.outerHeight=screen.availHeight;
+		this.outerWidth=300;
+		this.outerHeight=200;
+    }
+	//将函数赋给自定义属性
+	window.maximize=fullScreen;
+</script>
+<body>  
+    <form id="form1" runat="server">  
+        <div>  
+            <input type="button" name="f" id="f" value="Maximize" onClick="window.maximize()" />
+        </div>  
+    </form>  
+</body>  
+</html>

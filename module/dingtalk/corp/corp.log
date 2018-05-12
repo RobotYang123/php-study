@@ -1,0 +1,4 @@
+E/ 2017-03-23 09:56:12  [getConfig] ERR: no corp access token
+E/ 2017-03-23 09:56:12  FAIL: {"errmsg":"\u4e0d\u5408\u6cd5\u7684access_token","errcode":40014}
+E/ 2017-03-23 09:56:36  [getConfig] ERR: no corp access token
+E/ 2017-03-23 09:56:36  FAIL: {"errmsg":"\u4e0d\u5408\u6cd5\u7684access_token","errcode":40014}
