@@ -6,7 +6,7 @@
  * Time: 18:11
  */
 
-class Hgstest
+class hgstest
 {
     //1.一段长文字中有很多变量（1000个词中间有200个变量），如何简单地用程序输出这段长文字？
     public static function showStrWithVar()
@@ -162,7 +162,7 @@ class Hgstest
         echo "This is static function\n";
     }
 
-    public function Hgstest()
+    public function hgstest()
     {
         echo "This is init by Hgstest \n";
     }
