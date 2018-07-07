@@ -32,21 +32,10 @@ class Niuke
      */
     public function maxNumStr() {
         while ($n = trim( fgets(STDIN)) ) {
-            $m = trim( fgets(STDIN) );
-            $m = explode(' ', $m);
-
-            foreach ($m as $k => &$v) {
-                $v = str_pad($v, 4, '0', STR_PAD_RIGHT) . '-' . strlen($v);
-            }
-            unset($v);
-            rsort($m);
-
-            foreach ($m as $k => &$v) {
-                list($v, $len) = explode('-', $v);
-                $v = substr($v, 0, $len);
-            }
-            unset($v);
-
+            $m = explode(' ', trim( fgets(STDIN) ));
+            usort($m, function ($a, $b) {
+                return ($a.$b <= $b.$a) ? 1 : -1;
+            });
             $str = implode('', $m);
             echo $str . "\n";
         }
