@@ -423,14 +423,15 @@ $pile_str = $_REQUEST['in2'];
 //$N = trim( fgets(STDIN) );
 //$pile_str = trim( fgets(STDIN) );
 $pile_arr = explode(' ', $pile_str);
-$c = 0;
+$s = $c = 0;
 for ($i = 0; $i < count($pile_arr);) {
     $c ++;
-    if ($i >= $N-1) {
+    $step = $pile_arr[$i];
+    $s += $step;
+    if ($s >= $N) {
         echo $c;
         break;
     } else {
-        $step = $pile_arr[$i];
         if ($step == 0) {
             echo -1;
             break;
