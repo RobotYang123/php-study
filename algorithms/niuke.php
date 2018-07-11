@@ -418,32 +418,59 @@
 //2 0 1 1 1
 //复制
 //4
-$N = $_REQUEST['in'];
-$pile_str = $_REQUEST['in2'];
-//$N = trim( fgets(STDIN) );
-//$pile_str = trim( fgets(STDIN) );
-$pile_arr = explode(' ', $pile_str);
-$s = $c = 0;
-for ($i = 0; $i < count($pile_arr);) {
-    $c ++;
-    $step = $pile_arr[$i];
-    $s += $step;
-    if ($s >= $N) {
-        echo $c;
-        break;
-    } else {
-        if ($step == 0) {
-            echo -1;
-            break;
-        } else {
-            $i += $step;
-        }
-    }
+//$N = $_REQUEST['in'];
+//$pile_str = $_REQUEST['in2'];
+////$N = trim( fgets(STDIN) );
+////$pile_str = trim( fgets(STDIN) );
+//$pile_arr = explode(' ', $pile_str);
+//$s = $c = 0;
+//for ($i = 0; $i < count($pile_arr);) {
+//    $c ++;
+//    $step = $pile_arr[$i];
+//    $s += $step;
+//    if ($s >= $N) {
+//        echo $c;
+//        break;
+//    } else {
+//        if ($step == 0) {
+//            echo -1;
+//            break;
+//        } else {
+//            $i += $step;
+//        }
+//    }
+//}
+
+//-----------------------------------------------------------------------------
+
+//题目描述
+//给定一个十进制的正整数number，选择从里面去掉一部分数字，希望保留下来的数字组成的正整数最大。
+//引自网友解析：这题就是判断当前数的前一个数是不是比当前数小，是的话，删除钱一个数
+//输入描述:
+//输入为两行内容，第一行是正整数number，1 ≤ length(number) ≤ 50000。第二行是希望去掉的数字数量cnt 1 ≤ cnt < length(number)。
+//输出描述:
+//输出保留下来的结果。
+//示例1
+//输入
+//325 1
+//输出
+//35
+$num = $_REQUEST['in'];
+$cnt = $_REQUEST['in2'];
+//$num = trim( fgets(STDIN) );
+//$cnt = trim( fgets(STDIN) );
+$num_arr = str_split($num);
+$snt = count($num_arr) - $cnt; //要保留数的长度
+$n = '';
+for ($i = 0; $i < $snt; $i++) {
+    $end = -($snt - $i) + 1;
+    $sub_arr = array_slice($num_arr, 0, $end ? $end : null);
+    $sub_max = max($sub_arr);
+    $k = array_search($sub_max, $sub_arr);
+    $num_arr = array_slice($num_arr, $k + 1);
+    $n .= $sub_max;
 }
-
-
-
-
+echo $n;
 
 
 
