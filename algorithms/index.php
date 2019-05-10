@@ -2,11 +2,13 @@
 
 echo "=== hello algorithms ===\n\n";
 
-$randArr = randarr(10, 10, 100);
-echo "ran arr: " . implode(', ', $randArr) . "\n";
-$selArr = selection($randArr);
-echo "sel arr: " . implode(', ', $selArr) . "\n";
-
+/**
+ * Generate random num array
+ * @param $num
+ * @param $min
+ * @param $max
+ * @return array
+ */
 function randarr($num, $min, $max)
 {
     $arr = [];
@@ -17,6 +19,11 @@ function randarr($num, $min, $max)
     return $arr;
 }
 
+/**
+ * Classical selection sort
+ * @param $arr
+ * @return mixed
+ */
 function selection($arr) {
     for ($i = 0; $i < count($arr); $i++) {
         $minInd = $i;
@@ -29,3 +36,7 @@ function selection($arr) {
     }
     return $arr;
 }
+$randArr = randarr(10, 10, 100);
+echo "ran arr: " . implode(', ', $randArr) . "\n";
+$selArr = selection($randArr);
+echo "sel arr: " . implode(', ', $selArr) . "\n";
