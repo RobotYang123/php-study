@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <title></title>  
+</head>  
+<body>  
+    <form id="form1" runat="server">  
+        <div>  
+            <input type="file" name="f" id="f" />
+            <input id="aa" name="aa" onclick="javascript;： _s();" type="button" value="测试"/>
+        </div>  
+    </form>  
+</body>  
+</html>  
+<script type="text/javascript">  
+    function _s() {  
+        var f = document.getElementById("f").files;  
+        //上次修改时间  
+        alert(f[0].lastModifiedDate);  
+        //名称  
+        alert(f[0].name);  
+        //大小 字节  
+        alert(f[0].size);  
+        //类型  
+        alert(f[0].type);  
+    }  
+</script>

@@ -1,0 +1,59 @@
+{
+  "name": "rbt/demo-php",
+  "description": "The path of PHP learning from rookie to master",
+  "type": "project",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "keywords": [
+    "php demo",
+    "php example",
+    "php learning",
+    "php practice",
+    "php study"
+  ],
+  "authors": [
+    {
+      "name": "RobotYang",
+      "email": "robotyang123@163.com",
+      "homepage": "https://github.com/rbtyang",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+      "PhpDemo\\": "src/"
+    },
+    "files": [
+      "src/Helper/function.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhpDemoTests\\": "tests/"
+    }
+  },
+  "extra": {
+  },
+  "scripts": {
+    "post-root-package-install": [
+    ],
+    "post-create-project-cmd": [
+    ],
+    "post-autoload-dump": [
+    ],
+    "post-update-cmd": [
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
