@@ -11,7 +11,7 @@
  */
 function hello_word($who, $say = ''): string
 {
-    return "{$who} say {$say}";
+    return "{$who} say {$say} to the world.";
 }
 
 /**

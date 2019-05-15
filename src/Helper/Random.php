@@ -6,7 +6,7 @@
  * Time: 下午5:42
  */
 
-namespace PhpDemo\Advance\Unit;
+namespace PhpDemo\Helper;
 
 class Random
 {
@@ -27,10 +27,18 @@ class Random
         return $arr;
     }
 
+    /**
+     * Generate random tree line array
+     * @return array
+     */
     public static function treeLine(): array
     {
     }
 
+    /**
+     * Generate random tree multi array
+     * @return array
+     */
     public static function treeMulti(): array
     {
     }

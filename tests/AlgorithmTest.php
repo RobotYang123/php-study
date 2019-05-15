@@ -9,13 +9,13 @@
 namespace PhpDemoTests;
 
 use PhpDemo\Advance\Algorithm\Sort;
-use PhpDemo\Advance\Unit\Random;
+use PhpDemo\Helper\Random;
 use PHPUnit\Framework\TestCase;
 
 class AlgorithmTest extends TestCase
 {
     /**
-     * Test Classical selection sort
+     * Test sort
      */
     public function testSelectionClassic()
     {
@@ -35,7 +35,7 @@ class AlgorithmTest extends TestCase
     }
 
     /**
-     * Test Classical insertion sort
+     * Test sort
      */
     public function testInsertionClassic()
     {
@@ -55,14 +55,14 @@ class AlgorithmTest extends TestCase
     }
 
     /**
-     * Test Classical insertion sort
+     * Test sort
      */
-    public function testCountClassic()
+    public function testBubbleClassic()
     {
         $rand = Random::nums(10, 20, 50);
 
         $t1 = microtime(true);
-        $sort = Sort::countClassic($rand);
+        $sort = Sort::bubbleClassic($rand);
         $t2 = microtime(true);
 
         $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
@@ -75,7 +75,7 @@ class AlgorithmTest extends TestCase
     }
 
     /**
-     * Test Classical fast sort
+     * Test sort
      */
     public function testFastClassic()
     {
@@ -95,14 +95,15 @@ class AlgorithmTest extends TestCase
     }
 
     /**
-     * Test Classical shell sort
+     * Test sort
      */
     public function testShellClassic()
     {
         $rand = Random::nums(10, 20, 50);
 
         $t1 = microtime(true);
-        $sort = Sort::shellClassic($rand);
+//        $sort = Sort::shellClassicMine($rand);
+        $sort = Sort::shellClassicNet($rand);
         $t2 = microtime(true);
 
         $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
@@ -113,4 +114,145 @@ class AlgorithmTest extends TestCase
         print_r($data);
         $this->assertTrue(true);
     }
+
+    /**
+     * Test sort
+     */
+    public function testMergeClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::mergeClassic($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Test sort
+     */
+    public function testCountClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::countClassic($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Test Sort
+     */
+    public function testRadixClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::$rand($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Test Sort
+     */
+    public function testBucketClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::bucketClassic($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Test Sort
+     */
+    public function testHeapClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::$rand($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Test Sort
+     */
+    public function testBisectionInsertionClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::bisectionInsertionClassic($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * Test Sort
+     */
+    public function testRandomFastClassic()
+    {
+        $rand = Random::nums(10, 20, 50);
+
+        $t1 = microtime(true);
+        $sort = Sort::randomFastClassic($rand);
+        $t2 = microtime(true);
+
+        $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
+        $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['rand'] = implode(',', $rand);
+        $data['sort'] = implode(',', $sort);
+
+        print_r($data);
+        $this->assertTrue(true);
+    }
+
 }

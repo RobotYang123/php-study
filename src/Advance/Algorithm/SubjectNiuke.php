@@ -8,7 +8,7 @@
 
 namespace PhpDemo\Advance\Algorithm;
 
-class Niuke
+class SubjectNiuke
 {
 ///**
 // * 设有n(n<100)个正整数，将他们连接成一排，组成一个最大的多位整数。
