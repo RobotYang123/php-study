@@ -28,7 +28,7 @@ class Postman
         $data = json_decode($jsonStr, true);
         $envs = $data['environments'];
         $envsNew = array_combine(array_column($envs, 'name'), $envs);
-        $data['environments'] = $envsNew;
+        $data['environments'] = array_values($envsNew);
         $jsonStrNew = json_encode($data);
 
         $response = $filesystem->update($filePath, $jsonStrNew);
