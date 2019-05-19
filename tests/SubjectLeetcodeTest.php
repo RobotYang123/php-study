@@ -14,16 +14,20 @@ use PHPUnit\Framework\TestCase;
 
 class SubjectLeetcodeTest extends TestCase
 {
-    public function testFindTowNumEqualTarget()
+    public function testFindTowNumTarget()
     {
         $nums = [6, 11, 5, 1, 4, 12, 10, 15];
-        $res = SubjectLeetcode::findTowNumEqualTarget($nums, 14);
 
+        $res = SubjectLeetcode::findTowNumTargetByForce($nums, 14);
         print_r($res);
+
+        $res = SubjectLeetcode::findTowNumTargetByMap($nums, 14);
+        print_r($res);
+
         $this->assertTrue(true);
     }
 
-    public function testPlusTowLinkListInteger()
+    public function testPlusTowLinkList()
     {
         $l1 = LinkList::toList([2, 4, 3, 1]);
         $l2 = LinkList::toList([5, 6, 4]);
@@ -34,9 +38,29 @@ class SubjectLeetcodeTest extends TestCase
 //        $l1 = LinkList::toList([9]);
 //        $l2 = LinkList::toList([9]);
 
-        $res = SubjectLeetcode::plusTowLinkListInteger($l1, $l2);
-
+        $res = SubjectLeetcode::plusTowLinkListRecursive($l1, $l2);
         print_r($res);
+
+        $this->assertTrue(true);
+    }
+
+    public function testLengthNoRepeatSubString()
+    {
+        $s = 'asdfasd';
+        $a = $s{2};
+        $b = substr($s, 2, 5);
+
+        $s = 'abc';
+        $s = 'abcabcbdb';
+        $s = 'bbbbb';
+//        $s = 'pwwkew';
+//        $s = 'ohvhjdml';
+//        $s = '';
+//        $s = ' ';
+//        $s = 'ab cdef g  hij';
+        $res = SubjectLeetcode::lengthNoRepeatLongestSubString($s);
+        print_r($res);
+
         $this->assertTrue(true);
     }
 }
