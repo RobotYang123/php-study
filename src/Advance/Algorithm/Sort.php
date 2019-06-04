@@ -267,12 +267,29 @@ class Sort
 
     /**
      * 经典 二分插入排序
-     * @param $arr
+     * @param $sarr
      * @return array
      */
-    public static function bisectionInsertionClassic($arr): array
+    public static function bisectionInsertionClassic($sarr, $val): array
     {
-        return $arr;
+        $cnt = count($sarr);
+        $low = 0;
+        $high = $cnt - 1;
+        while ($low <= $high) {
+            $mid = ceil(($low + $high) / 2);
+            $mval = $sarr[$mid];
+            if ($val > $mval) {
+                $low = $mid + 1;
+            } else {
+                $high = $mid - 1;
+            }
+        }
+        for ($i = $cnt; $i > $low; $i--) {
+            $sarr[$i] = $sarr[$i - 1];
+        }
+        $sarr[$low] = $val;
+
+        return [$sarr, $low];
     }
 
     /**

@@ -220,14 +220,19 @@ class AlgorithmTest extends TestCase
      */
     public function testBisectionInsertionClassic()
     {
-        $rand = Random::nums(10, 20, 50);
+        $rand = Random::nums(rand(5,6), 10, 30);
+        $rand = Sort::insertionClassic($rand);
+//        $rand = [13, 18, 20, 23, 25, 28];
+        $val = 15;
 
         $t1 = microtime(true);
-        $sort = Sort::bisectionInsertionClassic($rand);
+        list($sort, $pos) = Sort::bisectionInsertionClassic($rand, $val);
         $t2 = microtime(true);
 
         $data['time'] = round(($t2 - $t1) * 1000, 4) . 'ms';
         $data['mery'] = round(memory_get_usage() / 1024, 4) . 'kb';
+        $data['vals'] = $val;
+        $data['posi'] = $pos;
         $data['rand'] = implode(',', $rand);
         $data['sort'] = implode(',', $sort);
 

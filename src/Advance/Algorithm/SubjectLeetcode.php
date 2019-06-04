@@ -11,6 +11,10 @@ namespace PhpDemo\Advance\Algorithm;
 
 use PhpDemo\Advance\Structure\ListNode;
 
+/**
+ * Class SubjectLeetcode
+ * @package PhpDemo\Advance\Algorithm
+ */
 class SubjectLeetcode
 {
     public static function helloWorld()
@@ -173,10 +177,11 @@ class SubjectLeetcode
      *
      * 则中位数是 (2 + 3)/2 = 2.5
      */
-    public static function findMedianSortedArrays($nums1, $nums2)
+    public static function findSortedArraysMidSimple(array $nums1, array $nums2): float
     {
         $nums = array_merge($nums1, $nums2);
         sort($nums);
+
         $n = count($nums);
         $i = $n - 1;
         if ($n % 2 == 0) { //偶数
@@ -184,25 +189,59 @@ class SubjectLeetcode
         } else {
             $m = $nums[($i + 1) / 2];
         }
+
         return $m;
     }
 
-    public static function findMedianSortedArrayAlo($nums1, $nums2)
+    /**
+     * 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
+     *
+     * 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
+     */
+    public static function findSortedArraysMidByBinIns(array $nums1, array $nums2): float
     {
+        $nums = $nums1;
         foreach ($nums2 as $nv2) {
-            foreach ($nums1 as $nv1) {
-                //...
-            }
+            list($nums, $posi) = self::bisectionInsertionClassic($nums, $nv2);
         }
 
-        $n = count($nums1);
+        $n = count($nums);
         $i = $n - 1;
         if ($n % 2 == 0) { //偶数
-            $m = ($nums1[$i / 2] + $nums1[$i / 2 + 1]) / 2;
+            $m = ($nums[$i / 2] + $nums[$i / 2 + 1]) / 2;
         } else {
-            $m = $nums1[($i + 1) / 2];
+            $m = $nums[($i + 1) / 2];
         }
+
         return $m;
+    }
+
+    /**
+     * 二分查找插入
+     * @param array $sarr
+     * @param integer $val
+     * @return array
+     */
+    public static function bisectionInsertionClassic(array $sarr, int $val): array
+    {
+        $cnt = count($sarr);
+        $low = 0;
+        $high = $cnt - 1;
+        while ($low <= $high) {
+            $mid = ceil(($low + $high) / 2);
+            $mval = $sarr[$mid];
+            if ($val > $mval) {
+                $low = $mid + 1;
+            } else {
+                $high = $mid - 1;
+            }
+        }
+        for ($i = $cnt; $i > $low; $i--) {
+            $sarr[$i] = $sarr[$i - 1];
+        }
+        $sarr[$low] = $val;
+
+        return [$sarr, $low];
     }
 
 }

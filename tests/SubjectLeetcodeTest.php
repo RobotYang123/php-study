@@ -66,12 +66,13 @@ class SubjectLeetcodeTest extends TestCase
 
     public function testLengthNoRepeatLongestSubString()
     {
-        $arr1 = [23, 29, 20, 32, 23,];
-        $arr2 = [21, 33, 25,];
-//        $arr1 = [10, 20, 20,];
-//        $arr2 = [20, 30];
+//        $arr1 = [20, 23, 23, 29, 32, ];
+//        $arr2 = [21, 25, 33, ];
+        $arr1 = [10, 20, 20,];
+        $arr2 = [20, 30];
 
-        $res = SubjectLeetcode::findMedianSortedArrays($arr1, $arr2);
+        $res['simple'] = SubjectLeetcode::findSortedArraysMidSimple($arr1, $arr2);
+        $res['binins'] = SubjectLeetcode::findSortedArraysMidByBinIns($arr1, $arr2);
 
         $this->assertTrue(true);
     }
