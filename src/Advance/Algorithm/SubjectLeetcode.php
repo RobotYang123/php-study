@@ -244,4 +244,32 @@ class SubjectLeetcode
         return [$sarr, $low];
     }
 
+    /**
+     * 29. 两数相除
+     * @param $dividend
+     * @param $divisor
+     * @return mixed
+     */
+    public static function divide($dividend, $divisor)
+    {
+        $sig = $dividend * $divisor > 0 ? true : false;   # 判断二者相除是正or负
+        $dividend = abs($dividend);  # 将被除数和除数都变成正数
+        $divisor = abs($divisor);  # 将被除数和除数都变成正数
+
+        $res = 0;                                           # 用来表示减去了多少个除数，也就是商为多少
+        while ($divisor <= $dividend) {                     # 当被除数小于除数的时候终止循环
+            $tmp_divisor = $divisor;                        # 倍增除数初始化
+            $count = 1;                                     # 倍增除数初始化
+            while ($tmp_divisor <= $dividend) {             # 当倍增后的除数大于被除数，重新变成最开始的除数
+                $dividend -= $tmp_divisor;
+                $res += $count;
+                $count <<= 1;                               # 向左移动一位
+                $tmp_divisor <<= 1;                         # 更新除数(将除数扩大两倍)
+            }
+        }
+
+        $res_value = $sig == true ? $res : -$res;        # 给结果加上符号
+        return max(min($res_value, PHP_INT_MAX), PHP_INT_MIN);
+    }
+
 }

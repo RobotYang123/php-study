@@ -10,7 +10,7 @@ namespace PhpDemoTests;
 
 use PHPUnit\Framework\TestCase;
 
-class SubjectNiukeTest extends TestCase
+class NiukeTest extends TestCase
 {
 
 }

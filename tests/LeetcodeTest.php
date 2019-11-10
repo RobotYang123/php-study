@@ -12,7 +12,7 @@ use PhpDemo\Advance\Algorithm\LinkList;
 use PhpDemo\Advance\Algorithm\SubjectLeetcode;
 use PHPUnit\Framework\TestCase;
 
-class SubjectLeetcodeTest extends TestCase
+class LeetcodeTest extends TestCase
 {
     public function testFindTowNumTarget()
     {
@@ -75,5 +75,10 @@ class SubjectLeetcodeTest extends TestCase
         $res['binins'] = SubjectLeetcode::findSortedArraysMidByBinIns($arr1, $arr2);
 
         $this->assertTrue(true);
+    }
+
+    public function testDivide()
+    {
+        SubjectLeetcode::divide(100, 3);
     }
 }
